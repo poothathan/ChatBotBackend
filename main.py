@@ -18,6 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def hello():
+    return {"response":"Hello from server"}
+
+
 @app.post("/api/chat_gemini")
 async def chat_gemini(request: Request):
     body = await request.json()
